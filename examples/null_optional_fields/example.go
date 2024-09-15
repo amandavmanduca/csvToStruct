@@ -1,12 +1,13 @@
 package main
 
 import (
-	"csvToStruct"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/amandavmanduca/csvToStruct"
 )
 
 type ExampleCsv struct {

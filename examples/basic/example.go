@@ -1,10 +1,11 @@
 package main
 
 import (
-	"csvToStruct"
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/amandavmanduca/csvToStruct"
 )
 
 type CsvColumns struct {
