@@ -1,0 +1,4 @@
+ID,Name,Last Name,Lucky Number,Gender,Date,Active
+1,fulano,matthews,33,male,null,false
+2,ciclano,da silva,22,female,2010-02-01,true
+3,beltrano,joe,11,male,1999-02-02,true

@@ -1,0 +1,4 @@
+ID,Name,Age,Gender,Date,Active
+1,fulano,33,male,null,false
+2,ciclano,22,female,2010-02-01,true
+3,beltrano,11,male,1999-02-02,true
