@@ -1,6 +1,7 @@
 package csvToStruct
 
 import (
+	"encoding/csv"
 	"os"
 	"reflect"
 	"testing"
@@ -21,7 +22,8 @@ func TestCsvHandler(t *testing.T) {
 		return
 	}
 	defer file.Close()
-	data, errors, err := CsvHandler[ExamplePayload, ExamplePayload](file)
+	reader := csv.NewReader(file)
+	data, errors, err := CsvHandler[ExamplePayload, ExamplePayload](reader)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}

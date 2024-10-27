@@ -3,7 +3,6 @@ package csvToStruct
 import (
 	"encoding/csv"
 	"fmt"
-	"os"
 	"reflect"
 	"strconv"
 	"strings"
@@ -22,9 +21,7 @@ type CsvColumnsToPayload[P any] interface {
 	ToPayload() (P, error)
 }
 
-func CsvHandler[I CsvColumnsToPayload[P], P any](file *os.File) ([]P, []CsvDataWithError, error) {
-	reader := csv.NewReader(file)
-
+func CsvHandler[I CsvColumnsToPayload[P], P any](reader *csv.Reader) ([]P, []CsvDataWithError, error) {
 	records, err := reader.ReadAll()
 	if err != nil {
 		fmt.Println("error reading file:", err)
@@ -63,7 +60,7 @@ func CsvHandler[I CsvColumnsToPayload[P], P any](file *os.File) ([]P, []CsvDataW
 		dataArray = append(dataArray, payload)
 		index++
 	}
-	fmt.Println(dataArray, rowsWithErrors)
+
 	return dataArray, rowsWithErrors, nil
 }
 

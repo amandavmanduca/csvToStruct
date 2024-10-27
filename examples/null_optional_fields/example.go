@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
 	"os"
 	"strconv"
@@ -92,7 +93,8 @@ func main() {
 		return
 	}
 	defer file.Close()
-	dataArray, rowsWithErrors, err := csvToStruct.CsvHandler[ExampleCsv, ExamplePayload](file)
+	reader := csv.NewReader(file)
+	dataArray, rowsWithErrors, err := csvToStruct.CsvHandler[ExampleCsv, ExamplePayload](reader)
 	if err != nil {
 		fmt.Println("err ", err)
 	}

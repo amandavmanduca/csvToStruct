@@ -57,7 +57,8 @@ func (csv CsvColumns) ToPayload() (ExamplePayload, error) {
 		return
 	}
 	defer file.Close()
-	dataArray, rowsWithErrors, err := csvToStruct.CsvHandler[CsvColumns, ExamplePayload](file)
+	reader := csv.NewReader(file)
+	dataArray, rowsWithErrors, err := csvToStruct.CsvHandler[CsvColumns, ExamplePayload](reader)
 	if err != nil {
 		fmt.Println("err ", err)
 	}
